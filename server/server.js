@@ -12,4 +12,7 @@ app.use(cors());
 const UserRoutes = require('./routes/user.routes');
 UserRoutes(app);
 
+const TaskListRoutes = require('./routes/taskList.routes');
+TaskListRoutes(app);
+
 app.listen(8000, () => console.log("Listening on Port 8000"));
