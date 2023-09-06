@@ -1,3 +1,9 @@
 * {
   background-color: rgb(37, 37, 38);
+  color: ghostwhite;
+}
+
+input {
+  background-color: ghostwhite;
+  float: right;
 }
