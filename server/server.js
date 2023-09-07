@@ -7,7 +7,14 @@ require("./config/mongoose.config");
 require('dotenv').config();
 
 app.use(express.json(), express.urlencoded({ extended: true }));
-app.use(cors());
+
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,  // Allow cookies and other credentials to be included
+    optionsSuccessStatus: 204,  // A successful OPTIONS response with no data
+};
+app.use(cors(corsOptions));
 
 const UserRoutes = require('./routes/user.routes');
 UserRoutes(app);

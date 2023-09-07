@@ -6,4 +6,10 @@
 input {
   background-color: ghostwhite;
   float: right;
+  color: black;
+  text-align: center;
+}
+
+p {
+  color: red;
 }
