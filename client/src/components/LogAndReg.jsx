@@ -34,6 +34,7 @@ const LogAndReg = () => {
             })
             .catch((err) => {
                 console.log(err)
+                setErrors(err.response.data.errors)
             })
     }
 
@@ -131,10 +132,20 @@ const LogAndReg = () => {
                             <label>Email:</label>
                             <input type="email" className="rounded-xl text-black" value={userLogin.email} name='email' onChange={loginHandler}/>
                         </div>
+                        {
+                            errors && errors.email
+                            ? <p>{errors.email.message}</p>
+                            : null
+                        }
                         <div className="m-2">
                             <label>Password:</label>
                             <input type="password" className="rounded-xl text-black" value={userLogin.password} name='password' onChange={loginHandler}/>
                         </div>
+                        {
+                            errors && errors.password
+                            ? <p>{errors.password.message}</p>
+                            : null
+                        }
                         <div className="m-2 flex justify-end">
                             <button className="bg-lime-500 rounded w-16 mt-4 text-center">Login</button>
                         </div>
