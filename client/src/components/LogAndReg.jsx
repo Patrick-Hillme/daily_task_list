@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const LogAndReg = () => {
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         firstName: '',
@@ -10,6 +14,28 @@ const LogAndReg = () => {
         password: '',
         confirmPassword: ''
     });
+
+    const [userLogin, setUserLogin] = useState({
+        email: '',
+        password: ''
+    })
+
+    const loginHandler = (e) => {
+        setUserLogin({ ...userLogin, [e.target.name]: e.target.value })
+    }
+
+    const submitLoginHandler = (e) => {
+        e.preventDefault();
+        console.log('User Data:', user);
+        axios.post('http://localhost:8000/api/login', userLogin, {withCredentials:true})
+            .then((res) => {
+                console.log(res)
+                navigate('/homepage')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 
     const [errors, setErrors] = useState({});
 
@@ -23,6 +49,7 @@ const LogAndReg = () => {
         axios.post('http://localhost:8000/api/register', user, {withCredentials:true})
             .then((res) => {
             console.log(res)
+            navigate('/homepage')
             })
             .catch((err) => {
                 console.log("Error response data:", err.response.data);
@@ -98,15 +125,15 @@ const LogAndReg = () => {
                 </div>
 
                 <div className="w-1/4 border-2 rounded-lg">
-                    <form className="flex-col m-5">
+                    <form className="flex-col m-5" onSubmit={submitLoginHandler}>
                         <h1 className="text-center text-xl">Login</h1>
                         <div className="m-2 mb-5 mt-5">
                             <label>Email:</label>
-                            <input type="email" className="rounded-xl"/>
+                            <input type="email" className="rounded-xl text-black" value={userLogin.email} name='email' onChange={loginHandler}/>
                         </div>
                         <div className="m-2">
                             <label>Password:</label>
-                            <input type="password" className="rounded-xl"/>
+                            <input type="password" className="rounded-xl text-black" value={userLogin.password} name='password' onChange={loginHandler}/>
                         </div>
                         <div className="m-2 flex justify-end">
                             <button className="bg-lime-500 rounded w-16 mt-4 text-center">Login</button>
