@@ -6,6 +6,7 @@ import Homepage from './components/Homepage';
 import Swat from './components/Swat';
 import Merchandising from './components/Merchandising';
 import Inventory from './components/Inventory';
+import EditTask from './components/EditTask';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='/swat' element={ <Swat/> }/>
         <Route path='/inventory' element={ <Inventory/> }/>
         <Route path='/merchandising' element={ <Merchandising/> }/>
+        <Route path='/editTask/:id' element={ <EditTask/> }/>
       </Routes>
     </>
   )

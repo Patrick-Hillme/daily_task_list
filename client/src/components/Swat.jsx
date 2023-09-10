@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const Swat = (props) => {
 
+    const navigate = useNavigate();
+
     const [taskList, setTaskList] = useState([]);
     const [newTask, setNewTask] = useState('');
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/allTasks')
+            .then((res) => {
+                setTaskList(res.data)
+            });
+    }, []);
 
     const changeHandler = (e) => {
         setNewTask(e.target.value);
@@ -97,7 +107,7 @@ const Swat = (props) => {
                                         <span className="bg-cyan-900 w-96 rounded mr-5 h-7 pl-2" style={{ textDecoration: newTask.completed ? 'line-through' : 'none' }}>
                                                 {newTask.taskName}
                                         </span>
-                                        <button className="mr-5 bg-green-500 rounded w-10">edit</button>
+                                        <button className="mr-5 bg-green-500 rounded w-10" onClick={() => navigate(`/editTask/${newTask._id}`)}>edit</button>
                                         <button className="bg-red-600 rounded w-16" onClick={() => deleteTask(newTask._id)}>delete</button>
                                     </div>
                                 </div>
