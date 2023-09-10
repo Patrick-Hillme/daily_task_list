@@ -27,7 +27,7 @@ const Homepage = (props) => {
                 </div>
             </header>
 
-            <p className="text-white text-center mt-14">You'll find your role for today on the schedule. Select a role to see your DTL.</p>
+            <p className="text-white text-center mt-14">You will find your role for today on the schedule. Please select a role to see your DTL.</p>
 
             <div className="flex justify-center grid-flow-row gap-5 mt-14">
                 <div>

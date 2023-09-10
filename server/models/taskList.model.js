@@ -7,7 +7,7 @@ const TaskListSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: [true, 'A description of the task is required']
+        // required: [true, 'A description of the task is required']
     }
 }, {timestamps: true})
 
