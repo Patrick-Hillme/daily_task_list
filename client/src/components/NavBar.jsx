@@ -19,7 +19,7 @@ const NavBar = (props) => {
     return (
         <div className="flex justify-around mt-5 items-center border-b-[3px] pb-5 mb-10">
             <div>
-                <Link to={'/homepage'} className="text-xl">Home</Link>
+                <Link to={'/homepage'} className="bg-sky-500 text-white text-lg rounded-full  px-3">Home</Link>
             </div>
             <div>
                 <h1 className="text-5xl">DTL</h1>
