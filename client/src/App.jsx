@@ -7,6 +7,7 @@ import Swat from './components/Swat';
 import Merchandising from './components/Merchandising';
 import Inventory from './components/Inventory';
 import EditTask from './components/EditTask';
+import ViewTask from './components/viewTask';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/inventory' element={ <Inventory/> }/>
         <Route path='/merchandising' element={ <Merchandising/> }/>
         <Route path='/editTask/:id' element={ <EditTask/> }/>
+        <Route path='/viewTask/:id' element={ <ViewTask/> }/>
       </Routes>
     </>
   )

@@ -66,8 +66,8 @@ const LogAndReg = () => {
                 <h1 className="text-blue-500">DTL</h1>
             </div>
             <div className="mb-12 mt-6">
-                <h1 className="text-white text-center text-4xl">Welcome to Daily Task List!</h1>
-                <h2 className="text-white text-center text-2xl">Register or log in to start planning!</h2>
+                <h1 className="text-white text-center text-4xl">Welcome to Daily Task List</h1>
+                <h2 className="text-white text-center text-2xl">Register or log in to start planning</h2>
             </div>
 
             <div className="flex justify-around m-4">

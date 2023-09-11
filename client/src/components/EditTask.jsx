@@ -36,7 +36,7 @@ const EditTask = (props) => {
         try {
             const response = await axios.patch(`http://localhost:8000/api/updateTask/${id}`, newTask);
             console.log(response);
-            navigate('/swat')
+            window.history.back();
         }
         catch (err) {
             console.error('Error updating task', err)
@@ -53,7 +53,7 @@ const EditTask = (props) => {
             </div>
             <form className="flex flex-col items-center space-y-4" onSubmit={submitHandler}>
                 <div>
-                    <input className="text-black" type="text" name="taskName" value={newTask.taskName} onChange={changeHandler} />
+                    <input className="text-black w-80 mb-5" type="text" name="taskName" value={newTask.taskName} onChange={changeHandler} />
                 </div>
                 <div className="flex flex-col">
                     <label>Description:</label>
@@ -61,7 +61,6 @@ const EditTask = (props) => {
                 </div>
                 <div className="space-x-4">
                     <button className="bg-green-500 rounded h-7 w-20 mt-5">Update</button>
-                    <button className="bg-green-500 rounded h-7 w-20" onClick={() => navigate('/swat')}>Cancel</button>
                 </div>
             </form>
         </div>

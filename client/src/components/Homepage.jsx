@@ -27,9 +27,9 @@ const Homepage = (props) => {
                 </div>
             </header>
 
-            <p className="text-white text-center mt-14">You will find your role for today on the schedule. Please select a role to see your DTL.</p>
+            <p className="text-white text-center mt-14 text-xl">You will find your role for today on the schedule. Please select a role to see your DTL.</p>
 
-            <div className="flex justify-center grid-flow-row gap-5 mt-14">
+            <div className="flex flex-col items-center mt-20 gap-10">
                 <div>
                     <button className="bg-gradient-to-r from-cyan-500 to-blue-500 shadow-lg shadow-blue-500/40 w-40 h-20 text-5xl rounded-full">
                         <Link to={'/swat'} className="bg-gradient-to-r from-cyan-500 to-blue-500">SWAT</Link>

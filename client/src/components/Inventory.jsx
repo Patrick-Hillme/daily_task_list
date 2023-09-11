@@ -108,7 +108,8 @@ const Inventory = (props) => {
                                                 {newTask.taskName}
                                         </span>
                                         <button className="mr-5 bg-green-500 rounded w-10" onClick={() => navigate(`/editTask/${newTask._id}`)}>edit</button>
-                                        <button className="bg-red-600 rounded w-16" onClick={() => deleteTask(newTask._id)}>delete</button>
+                                        <button className="mr-5 bg-sky-500 rounded w-10" onClick={() => navigate(`/viewTask/${newTask._id}`)}>View</button>
+                                        <button className="bg-red-600 rounded w-16 mr-5" onClick={() => deleteTask(newTask._id)}>delete</button>
                                     </div>
                                 </div>
                             ))}
