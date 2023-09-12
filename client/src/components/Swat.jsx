@@ -79,8 +79,8 @@ const Swat = (props) => {
             <div>
                 <NavBar/>
             </div>
-            <h1 className="text-3xl">SWAT</h1>
-            <p className="mt-5 text-white">SWAT ensures inventory integrity in the store through a variety of inventory adjustments and data collection tools. The role is to identify, determine, and communicate high shrink categories, identify the root cause of replinishment issues, and follow up with leadership until the problem is resolved. You will communicate and coach store employees and leadership on the importance of inventory integrity and process gaps that are identified.</p>
+            <h1 className="text-3xl text-slate-200">SWAT</h1>
+            <p className="mt-5 text-slate-200 text-lg">SWAT ensures inventory integrity in the store through a variety of inventory adjustments and data collection tools. The role is to identify, determine, and communicate high shrink categories, identify the root cause of replinishment issues, and follow up with leadership until the problem is resolved. You will communicate and coach store employees and leadership on the importance of inventory integrity and process gaps that are identified.</p>
             <div className="flex justify-between mt-10">
                 <div className="w-1/3">
                     <h2 className="border-b w-30 mb-5 text-lg">Task Suggestions (Click to add)</h2>
@@ -95,7 +95,7 @@ const Swat = (props) => {
                 <div className="w-2/4">
                     <h1 className="border-b mb-5 text-lg">Tasks</h1>
                     <form onSubmit={submitHandler} className="flex">
-                        <input className="text-black mr-10 w-60 mb-10 rounded h-7" type="text" placeholder="Add a new task" value={ newTask } onChange={changeHandler}/>
+                        <input className="text-black mr-10 w-60 mb-10 rounded h-7 bg-slate-200" type="text" placeholder="Add a new task" value={ newTask } onChange={changeHandler}/>
                         <button className="bg-green-500 h-7 w-20 rounded">Add</button>
                     </form>
                     <div>
@@ -104,7 +104,7 @@ const Swat = (props) => {
                                 <div key={newTask._id} className="mb-5 bg-slate-500 h-7 rounded">
                                     <div className="flex items-center">
                                         <input type="checkbox" className="form-checkbox h-7 w-5 mr-2" checked={newTask.completed} onChange={() => handleCheckBox(newTask._id)}/>
-                                        <span className="bg-cyan-900 w-96 rounded mr-5 h-7 pl-2" style={{ textDecoration: newTask.completed ? 'line-through' : 'none' }}>
+                                        <span className="bg-slate-200 text-black w-96 rounded mr-5 h-7 pl-2" style={{ textDecoration: newTask.completed ? 'line-through' : 'none' }}>
                                                 {newTask.taskName}
                                         </span>
                                         <button className="mr-5 bg-green-500 rounded w-10" onClick={() => navigate(`/editTask/${newTask._id}`)}>Edit</button>

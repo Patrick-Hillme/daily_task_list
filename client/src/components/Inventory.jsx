@@ -104,7 +104,7 @@ const Inventory = (props) => {
                                 <div key={newTask._id} className="mb-5 bg-slate-500 h-7 rounded">
                                     <div className="flex items-center">
                                         <input type="checkbox" className="form-checkbox h-7 w-5 mr-2" checked={newTask.completed} onChange={() => handleCheckBox(newTask._id)}/>
-                                        <span className="bg-cyan-900 w-96 rounded mr-5 h-7 pl-2" style={{ textDecoration: newTask.completed ? 'line-through' : 'none' }}>
+                                        <span className="bg-slate-200 text-black w-96 rounded mr-5 h-7 pl-2" style={{ textDecoration: newTask.completed ? 'line-through' : 'none' }}>
                                                 {newTask.taskName}
                                         </span>
                                         <button className="mr-5 bg-green-500 rounded w-10" onClick={() => navigate(`/editTask/${newTask._id}`)}>edit</button>

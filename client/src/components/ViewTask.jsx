@@ -34,14 +34,14 @@ const ViewTask = (props) => {
             </div>
             <div className="flex flex-col items-center space-y-4">
                 <div>
-                    <input className="text-black w-80 mb-5" type="text" name="taskName" defaultValue={newTask.taskName} readOnly/>
+                    <input className="text-black w-80 mb-5 rounded" type="text" name="taskName" defaultValue={newTask.taskName} readOnly/>
                 </div>
                 <div className="flex flex-col">
                     <label>Description:</label>
                     <textarea className="text-black resize-none h-32 p-2 border border-gray-300 rounded bg-white" id="description" name="description" defaultValue={newTask.description} rows="4" cols="50" readOnly></textarea>
                 </div>
                 <div className="space-x-4">
-                    <button className="bg-green-500 rounded h-7 w-20" onClick={() => window.history.back()}>Go Back</button> 
+                    <button className="bg-green-500 rounded h-7 w-20 mt-5" onClick={() => window.history.back()}>Go Back</button> 
                 </div>
             </div>
         </div>
