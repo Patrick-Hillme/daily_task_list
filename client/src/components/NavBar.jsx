@@ -1,11 +1,15 @@
+// Import necessary libraries and modules
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+// Define the NavBar component
 const NavBar = (props) => {
 
+    // React Router hook for navigation
     const navigate = useNavigate();
 
+    // Function to handle user logout
     const logout = () => {
         axios.post('http://localhost:8000/api/logout', {}, {withCredentials:true})
             .then((res) => {
@@ -16,6 +20,7 @@ const NavBar = (props) => {
             })
     }
 
+    // Render the component's UI
     return (
         <div className="flex justify-around mt-5 items-center border-b-[3px] pb-5 mb-10">
             <div>
@@ -31,4 +36,5 @@ const NavBar = (props) => {
     )
 }
 
+// Export the NavBar component for use in other parts of the application
 export default NavBar;

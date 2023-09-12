@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Connect to a MongoDB database
 mongoose.connect('mongodb://127.0.0.1:27017/usersDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true

@@ -1,17 +1,22 @@
+// Import necessary libraries and modules
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 
+// Define the ViewTask component
 const ViewTask = (props) => {
 
+    // Get the 'id' parameter from the route URL using React Router's 'useParams' hook
     const {id} = useParams();
 
+    // Initialize a state variable 'newTask' to store task details
     const [newTask, setNewTask] = useState({
         taskName: "",
         description: ""
     });
 
+    // Use the 'useEffect' hook to fetch task details when the component mounts or 'id' changes
     useEffect(() => {
         axios.get(`http://localhost:8000/api/oneTask/${id}`)
             .then((res) => {
@@ -23,6 +28,7 @@ const ViewTask = (props) => {
             })
     }, [id]);
 
+    // Render the component's UI
     return (
         <div>
             <div className="container mx-auto w-11/12">
@@ -49,4 +55,5 @@ const ViewTask = (props) => {
     )
 }
 
+// Export the ViewTask component for use in other parts of the application
 export default ViewTask;

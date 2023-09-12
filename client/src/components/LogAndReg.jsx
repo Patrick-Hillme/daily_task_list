@@ -1,12 +1,15 @@
+// Import necessary libraries and modules
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
+// Define the LogAndReg component
 const LogAndReg = () => {
 
+    // React Router hook for navigation
     const navigate = useNavigate();
 
+    // Initialize state variables for user registration and login
     const [user, setUser] = useState({
         firstName: '',
         lastName: '',
@@ -20,10 +23,12 @@ const LogAndReg = () => {
         password: ''
     })
 
+    // Event handler to update the 'userLogin' state when the input fields for login change
     const loginHandler = (e) => {
         setUserLogin({ ...userLogin, [e.target.name]: e.target.value })
     }
 
+    // Event handler to submit a login request to the server
     const submitLoginHandler = (e) => {
         e.preventDefault();
         console.log('User Data:', user);
@@ -38,12 +43,15 @@ const LogAndReg = () => {
             })
     }
 
+    // Initialize state variable for errors
     const [errors, setErrors] = useState({});
 
+    // Event handler to update the 'user' state when the input fields for registration change
     const changeHandler = (e) => {
         setUser({ ...user, [e.target.name]:e.target.value })
     }
 
+    // Event handler to submit a registration request to the server
     const submitHandler = (e) => {
         e.preventDefault();
         console.log('User Data:', user);
@@ -60,6 +68,7 @@ const LogAndReg = () => {
             });
     };
 
+    // Render the component's UI
     return (
         <div>
             <div className="nav-bar flex justify-center text-4xl mt-4">
@@ -157,4 +166,5 @@ const LogAndReg = () => {
     )
 }
 
+// Export the LogAndReg component for use in other parts of the application
 export default LogAndReg;

@@ -1,11 +1,14 @@
-import { useState } from "react";
+// Import necessary libraries and modules
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+// Define the Homepage component
 const Homepage = (props) => {
 
+    // React Router hook for navigation
     const navigate = useNavigate();
 
+    // Event handler to log the user out
     const logout = () => {
         axios.post('http://localhost:8000/api/logout', {}, {withCredentials:true})
             .then((res) => {
@@ -16,6 +19,7 @@ const Homepage = (props) => {
             })
     }
 
+    // Render the component's UI
     return (
         <div>
             <header className="flex items-center justify-around mt-10">
@@ -51,4 +55,5 @@ const Homepage = (props) => {
     )
 }
 
+// Export the Homepage component for use in other parts of the application
 export default Homepage;

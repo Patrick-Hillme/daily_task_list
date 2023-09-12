@@ -1,9 +1,12 @@
+// Import required modules and models
 const User = require('../models/user.model')
 const secret = process.env.SECRET_KEY;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+// Exported object with functions to handle user registration, login, and logout
 module.exports = {
+    // Function to handle user registration
     register: async (req, res) => {
         try {
             console.log('Request Body', req.body);
@@ -22,6 +25,7 @@ module.exports = {
             res.status(500).json(err)
         }
     },
+    // Function to handle user login
     login: async (req, res) => {
         try {
             const user = await User.findOne({email: req.body.email})
@@ -41,6 +45,7 @@ module.exports = {
             res.status(500).json({error: 'Internal Server Error'})
         }
     },
+    // Function to handle user logout
     logout: (req, res) => {
         res.clearCookie('userToken')
         res.status(200).json({ message: 'Logout was successful' })

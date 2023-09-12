@@ -1,16 +1,20 @@
+// Import necessary libraries and modules
 import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
+// Define the Inventory component
 const Inventory = (props) => {
 
+    // React Router hook for navigation
     const navigate = useNavigate();
 
+    // Initialize state variables for tasks and a new task
     const [taskList, setTaskList] = useState([]);
     const [newTask, setNewTask] = useState('');
 
+    // Fetch initial task data from the server when the component mounts
     useEffect(() => {
         axios.get('http://localhost:8000/api/allTasks')
             .then((res) => {
@@ -18,10 +22,12 @@ const Inventory = (props) => {
             });
     }, []);
 
+    // Event handler to update the 'newTask' state when the input field changes
     const changeHandler = (e) => {
         setNewTask(e.target.value);
     }
 
+    // Event handler to submit a new task to the server
     const submitHandler = async (e) => {
         e.preventDefault();
 
@@ -39,6 +45,7 @@ const Inventory = (props) => {
         }
     }
 
+    // Event handler to toggle the completion status of a task
     const handleCheckBox = (taskId) => {
         setTaskList(taskList.map(newTask => {
             if ( newTask._id === taskId) {
@@ -48,6 +55,7 @@ const Inventory = (props) => {
         }))
     }
 
+    // Event handler to add a suggested task to the list
     const addSuggestedTask = async (suggestedTask) => {
         try {
             const response = await axios.post('http://localhost:8000/api/newTask', {
@@ -62,6 +70,7 @@ const Inventory = (props) => {
         }
     };
 
+    // Event handler to delete a task
     const deleteTask = (newTaskId) => {
         console.log(newTaskId)
         axios.delete(`http://localhost:8000/api/deleteTask/${newTaskId}`)
@@ -74,6 +83,7 @@ const Inventory = (props) => {
             })
     }
 
+    // Render the component's UI
     return (
         <div className="container mx-auto w-11/12">
             <div>
@@ -121,4 +131,5 @@ const Inventory = (props) => {
     )
 }
 
+// Export the Inventory component for use in other parts of the application
 export default Inventory;

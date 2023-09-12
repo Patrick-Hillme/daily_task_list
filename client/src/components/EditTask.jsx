@@ -1,10 +1,11 @@
+// Import necessary libraries and modules
 import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
+// Define the EditTask component
 const EditTask = (props) => {
 
     const navigate = useNavigate();
@@ -16,6 +17,7 @@ const EditTask = (props) => {
         description: ""
     });
 
+    // Fetch the task's details by its ID when the component mounts
     useEffect(() => {
         axios.get(`http://localhost:8000/api/oneTask/${id}`)
             .then((res) => {
@@ -27,10 +29,12 @@ const EditTask = (props) => {
             })
     }, [id]);
 
+    // Event handler to update the 'newTask' state when input fields change
     const changeHandler = (e) => {
         setNewTask({ ...newTask, [e.target.name]: e.target.value })
     };
 
+    // Event handler to submit the updated task details
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
@@ -43,6 +47,7 @@ const EditTask = (props) => {
         }
     }
 
+    // Render the component's UI
     return (
         <div className="container mx-auto w-11/12">
             <div>
@@ -53,7 +58,7 @@ const EditTask = (props) => {
             </div>
             <form className="flex flex-col items-center space-y-4" onSubmit={submitHandler}>
                 <div>
-                    <input className="text-black w-80 mb-5" type="text" name="taskName" value={newTask.taskName} onChange={changeHandler} />
+                    <input className="text-black w-80 mb-5 rounded" type="text" name="taskName" value={newTask.taskName} onChange={changeHandler} />
                 </div>
                 <div className="flex flex-col">
                     <label>Description:</label>
@@ -67,4 +72,5 @@ const EditTask = (props) => {
     )
 }
 
+// Export the EditTask component for use in other parts of the application
 export default EditTask;

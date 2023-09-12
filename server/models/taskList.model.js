@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//* Define a schema for the TaskList data structure
 const TaskListSchema = new mongoose.Schema({
     taskName: {
         type: String,
@@ -7,8 +8,8 @@ const TaskListSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        // required: [true, 'A description of the task is required']
     }
 }, {timestamps: true})
 
+//* Create a mongoose model named 'TaskList' based on the 'TaskListSchema'
 module.exports = mongoose.model('TaskList', TaskListSchema);
